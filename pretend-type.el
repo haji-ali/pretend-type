@@ -79,17 +79,24 @@ Only text-revealing keys, TAB, newline, and hide keys are bound.")
   (pretend-type--maybe-disable))
 
 (defun pretend-type--reveal-to-next-line ()
-  "Reveal all characters up to and including the next newline."
+  "Reveal all characters up to and including the next newline, skipping leading whitespace."
   (interactive)
   (let ((inhibit-read-only t)
         (start (overlay-start pretend-type--overlay))
-        next-nl)
-    (setq next-nl (or (save-excursion
-                        (goto-char start)
-                        (search-forward "\n" nil t))
-                      (point-max)))
-    (move-overlay pretend-type--overlay next-nl (overlay-end pretend-type--overlay))
-    (goto-char next-nl))
+        end)
+    (when (< start (point-max))
+      ;; Find the position of the next newline or end of buffer
+      (setq end (or (save-excursion
+                      (goto-char start)
+                      (search-forward "\n" nil t))
+                    (point-max)))
+      ;; Expand end forward to include all whitespace up to the next non-whitespace character
+      (while (and (< end (point-max))
+                  (memq (char-after end) '(?\  ?\t ?\n ?\r)))
+        (setq end (1+ end)))
+      ;; Move the overlay and point
+      (move-overlay pretend-type--overlay end (overlay-end pretend-type--overlay))
+      (goto-char end)))
   (pretend-type--maybe-disable))
 
 (defun pretend-type--reveal-next-word ()
