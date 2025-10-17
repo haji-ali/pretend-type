@@ -29,3 +29,15 @@
 
 ## Usage
 Simply open a buffer and enable `pretend-type-mode`, then type away.
+
+Tip: You can add `eval: (pretend-type-mode)` in your list of local variables
+to have the minor mode auto-enabled when you open a file, for maximum
+sneakiness.
+
+
+## Similar packages
+- [reveal-next](https://www.emacswiki.org/emacs/RevealNextTextMode) is similar
+  as it reveals the next character or line, except less sneaky.
+- [hacker-typer](https://github.com/dieggsy/emacs-hacker-typer) is also
+  similar buts adds text at a constant or random rate. It also works by
+  inserting the text in a new buffer. `pretend-type` does not modify the file.
