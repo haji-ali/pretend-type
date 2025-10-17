@@ -79,7 +79,8 @@ Only text-revealing keys, TAB, newline, and hide keys are bound.")
   (pretend-type--maybe-disable))
 
 (defun pretend-type--reveal-to-next-line ()
-  "Reveal all characters up to and including the next newline, skipping leading whitespace."
+  "Reveal all characters up to and including the next newline.
+Also reveals any whitespace following the newline."
   (interactive)
   (let ((inhibit-read-only t)
         (start (overlay-start pretend-type--overlay))

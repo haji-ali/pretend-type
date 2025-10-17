@@ -7,12 +7,12 @@
 ## Features
 
 - Hides all buffer content on activation.
-- Printable characters reveal **one character** at a time.
-- Whitespace characters (space, tab, newline) reveal **all consecutive whitespace** at once.
-- **TAB** reveals the next word, including leading whitespace.
-- **RET / C-j** reveals text up to the next newline.
-- **DEL** hides the previous character.
-- **M-DEL** hides the previous word.
+- "Inserting" printable characters reveals one character at a time.
+- "Inserting" whitespace characters (space, tab, newline) reveal all consecutive whitespace at once.
+- `<tab>` reveals the next word, including leading whitespace.
+- `<return>` and `C-j` reveals text up to the next newline.
+- `<DEL>` hides the previous character.
+- `<M-DEL>` hides the previous word.
 - All other Emacs commands remain fully functional.
 - Automatically disables when the entire buffer is revealed.
 
@@ -25,3 +25,7 @@
 
 ```elisp
 (require 'pretend-type)
+```
+
+## Usage
+Simply open a buffer and enable `pretend-type-mode`, then type away.
