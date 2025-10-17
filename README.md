@@ -39,5 +39,6 @@ sneakiness.
 - [reveal-next](https://www.emacswiki.org/emacs/RevealNextTextMode) is similar
   as it reveals the next character or line, except less sneaky.
 - [hacker-typer](https://github.com/dieggsy/emacs-hacker-typer) is also
-  similar buts adds text at a constant or random rate. It also works by
-  inserting the text in a new buffer. `pretend-type` does not modify the file.
+  similar buts only adds text at a constant or random rate. It also works by
+  inserting the text of a file in a new buffer. `pretend-type` uses the same
+  open buffer (without modifying it).
