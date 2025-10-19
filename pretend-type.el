@@ -110,7 +110,7 @@ Also reveals any whitespace following the newline."
       (setq next-word (save-excursion
                         (goto-char start)
                         ;; Skip leading whitespace
-                        (while (and (< (point) (point-max))
+                        (while (and (not (eobp))
                                     (memq (char-after (point)) '(?\  ?\t ?\n ?\r)))
                           (forward-char 1))
                         ;; Move to end of word
