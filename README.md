@@ -1,3 +1,8 @@
+
+<p align="center">
+  <img src="bruce-almighty.gif" alt="animated" />
+</p>
+
 # pretend-type-mode
 
 `pretend-type-mode` is a playful Emacs minor mode that hides the content of a buffer and "reveals" it as you pretend to type. Your keystrokes do **not** insert any text; instead, the hidden text is gradually revealed. This is perfect for demos, presentations, or just for fun.
